@@ -1,8 +1,8 @@
 # SpeedysClient
 
-![Minecraft](https://shields.io)
-![Fabric Loader](https://shields.io)
-![Java]([https://shields.io](https://fabricmc.net/use/installer/))
+![Minecraft](https://www.minecraft.net/)
+![Fabric Loader]((https://fabricmc.net/use/installer/))
+![Java](https://www.java.com/ru/download/)
 ![License](https://github.com/Korchagin060912X/SpeedyClient/blob/master/SpeedysClient/LICENSE)
 
 Fabric мод для Minecraft **1.21.8**.
