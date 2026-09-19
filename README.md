@@ -3,7 +3,7 @@
 ![Minecraft](https://shields.io)
 ![Fabric Loader](https://shields.io)
 ![Java](https://shields.io)
-![License](https://shields.io)
+![License](https://github.com/Korchagin060912X/SpeedyClient/blob/master/SpeedysClient/LICENSE)
 
 Fabric мод для Minecraft **1.21.8**.
 
