@@ -1,0 +1,135 @@
+plugins {
+    id 'fabric-loom' version '1.14.1'
+    id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+def modsRoot = file("${projectDir}/..")
+
+loom {
+    mods {
+        speedysclient {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+repositories {
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+    }
+    maven {
+        name = "LlamaLad7"
+        url = "https://maven.lenni0451.net/everything"
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs(
+                    "$projectDir/src/main/java",
+                    "$modsRoot/PVPUtils/PVPUtils-new/src/main/java",
+                    "$modsRoot/AttackIndicator/src/main/java",
+                    "$modsRoot/CoolDownItems/src/main/java",
+                    "$modsRoot/DurabilityArmorTint/src/main/java",
+                    "$modsRoot/PearlLandingPredictor/src/client/java",
+                    "$modsRoot/MusicIntegration/src/main/java"
+            )
+            exclude { fte ->
+                def p = fte.file.path.replace('\\', '/')
+                (p.contains('PVPUtils-new') && p.endsWith('/PVPUtils.java'))
+                        || p.contains('/SpeedysClient/src/main/java/me/shampoon/attackindicator/')
+                        || p.contains('/SpeedysClient/src/main/java/me/shampoon/cooldownitem/')
+                        || p.contains('/SpeedysClient/src/main/java/ru/artem/durabilitytint/')
+                        || p.contains('/SpeedysClient/src/main/java/com/pearllandingpredictor/')
+                        || p.contains('/SpeedysClient/src/main/java/io/github/musicintegration/')
+                        
+                        || p.endsWith('/PearlLandingPredictorClient.java')
+                        || p.endsWith('/DurabilityTintClientMod.java')
+                        || p.endsWith('/AttackIndicatorClient.java')
+                        || p.endsWith('/ModMenuIntegration.java')
+                        || p.endsWith('/AttackIndicatorConfigScreen.java')
+            }
+        }
+        resources {
+            srcDirs(
+                    "$projectDir/src/main/resources",
+                    "$modsRoot/PVPUtils/PVPUtils-new/src/main/resources",
+                    "$modsRoot/AttackIndicator/src/main/resources",
+                    "$modsRoot/CoolDownItems/src/main/resources",
+                    "$modsRoot/DurabilityArmorTint/src/main/resources",
+                    "$modsRoot/MusicIntegration/src/main/resources"
+            )
+            // fabric.mod.json только из SpeedysClient (первый srcDir); остальные — duplicatesStrategy EXCLUDE.
+        }
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    annotationProcessor "io.github.llamalad7:mixinextras-fabric:0.4.1"
+    modImplementation(include("io.github.llamalad7:mixinextras-fabric:0.4.1"))
+
+    modImplementation(include("maven.modrinth:malilib:2kC79eY3"))
+    modImplementation(include("maven.modrinth:item-scroller:pP0Z03i0"))
+
+}
+
+processResources {
+    inputs.property "version", project.version
+    filteringCharset "UTF-8"
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 21
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+jar {
+    from("LICENSE") {
+        rename { "${it}_${project.base.archivesName.get()}" }
+    }
+}
+
+tasks.register('installLocalMod', Copy) {
+    group = 'speedys'
+    description = 'Копирует remapJar в папку mods (по умолчанию %APPDATA%\\.minecraft\\mods). Свой путь: -PspeedysModsDir=C:/Games/MC/mods'
+    dependsOn(tasks.remapJar)
+    def custom = project.findProperty('speedysModsDir')
+    def destMods = custom != null ? file(custom) : file((System.getenv('APPDATA') != null ? "${System.getenv('APPDATA')}/.minecraft/mods" : "${System.getProperty('user.home')}/.minecraft/mods"))
+    into(destMods)
+    from { tasks.remapJar.archiveFile.get().asFile }
+    doFirst {
+        def dir = destMods as File
+        if (dir.directory) {
+            dir.listFiles()?.each { f ->
+                if (f.file && f.name.startsWith('speedysclient-') && f.name.endsWith('.jar')) {
+                    f.delete()
+                }
+            }
+        }
+    }
+}
+
+// Меню настроек/конфигов и весь UI speedysclient — только из исходников в этом репозитории.
+// Подмешивание class-ов из внешнего speedysclient-1.0.0.jar в jar отключено, чтобы сборка не затирала твои экраны.

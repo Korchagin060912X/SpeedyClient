@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "attackindicator",
+  "version": "${version}",
+  "name": "Attack Indicator",
+  "description": "Dynamic crosshair color/scale when aiming at attackable entities.",
+  "authors": [
+    "Shampoon_"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "me.shampoon.attackindicator.AttackIndicatorClient"
+    ],
+    "modmenu": [
+      "me.shampoon.attackindicator.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "attackindicator.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.14",
+    "minecraft": "~1.21.8",
+    "fabric-api": "*",
+    "java": ">=21"
+  }
+}

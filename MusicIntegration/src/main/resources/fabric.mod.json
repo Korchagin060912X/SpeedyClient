@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "musicintegration",
+	"version": "${version}",
+	"name": "Music Integration",
+	"description": "Windows GSMTC now playing HUD for Minecraft (Spotify, browsers, etc.).",
+	"authors": [
+		"MusicIntegration"
+	],
+	"license": "MIT",
+	"icon": "assets/musicintegration/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"io.github.musicintegration.MusicIntegrationClient"
+		],
+		"modmenu": [
+			"io.github.musicintegration.config.ModMenuEntry"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.16.0",
+		"minecraft": "~1.21.8",
+		"java": ">=21",
+		"fabric-api": "*",
+		"cloth-config2": "*"
+	},
+	"suggests": {
+		"modmenu": "*"
+	}
+}

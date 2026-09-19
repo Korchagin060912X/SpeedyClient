@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "speedysclient",
+  "version": "1.8.0",
+  "name": "Speedys Client",
+  "description": "Официальный клиент Speedys Client. Приятной игры \u003c3 (Мод был обновлен до 1.8.0)",
+  "authors": [
+    "Shampoon_"
+  ],
+  "license": "MIT",
+  "icon": "assets/speedysclient/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.shampoon.speedysclient.SpeedysClient"
+    ]
+  },
+  "mixins": [
+    "pvputils.mixins.json",
+    "attackindicator.mixins.json",
+    "cooldownitem.mixins.json",
+    "durability_tint.mixins.json",
+    "speedysclient.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "\u003e\u003d0.15.0",
+    "fabric-api": "*",
+    "minecraft": "\u003e\u003d1.21.8",
+    "java": "\u003e\u003d21"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "durability_tint",
+  "version": "${version}",
+  "name": "Durability Armor Hint",
+  "description": "Client-side visual hint for armor based on remaining durability.",
+  "icon": "icon.png",
+  "authors": [
+    "Shampoon_"
+  ],
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "ru.artem.durabilitytint.DurabilityTintClientMod"
+    ]
+  },
+  "mixins": [
+    "durability_tint.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.8",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "cooldownitem",
+  "version": "${version}",
+  "name": "CoolDownItem",
+  "description": "CoolDownItem — лаконичный мод, добавляющий цветной цифровой индикатор перезарядки предметов. Теперь ты точно знаешь, когда твой эндер-перл или щит будет готов к бою!",
+  "authors": [
+    "Shampoon_"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.shampoon.cooldownitem.CoolDownItemMod"
+    ]
+  },
+  "mixins": [
+    "cooldownitem.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "~${minecraft_version}",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "category.pvputils": "PVPUtils",
+  "key.pvputils.config": "Open Config",
+  "key.pvputils.itempicker": "Toggle ItemPicker",
+  "key.pvputils.fastxp": "Toggle FastXP",
+  "key.pvputils.autosprint": "Toggle AutoSprint",
+  "key.pvputils.armorhud": "Toggle ArmorHUD",
+  "key.pvputils.effecttimer": "Toggle EffectTimer",
+  "key.pvputils.fullbright": "Toggle FullBright",
+  "key.pvputils.zoom.hold": "Zoom (hold; scroll = strength)"
+}

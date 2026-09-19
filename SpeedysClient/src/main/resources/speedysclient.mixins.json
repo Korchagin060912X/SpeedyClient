@@ -1,0 +1,25 @@
+{
+  "required": true,
+  "package": "com.shampoon.speedysclient.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "ClientWorldCustomSkyColorMixin",
+    "ClientPlayerInteractionManagerMixin",
+    "ClientPlayNetworkHandlerMixin",
+    "ClientPlayerEntityDropMixin",
+    "EntityAntiInvisMixin",
+    "FogRendererDistanceCustomWorldMixin",
+    "FogRendererCustomWorldMixin",
+    "HandledScreenEatHelperMixin",
+    "HeldItemRendererCustomHandMixin",
+    "InGameHudEatHelperMixin",
+    "WindowCustomRatioMixin",
+    "WorldRendererCometSkyMixin",
+    "WorldRendererBlockOutlineMixin",
+    "LivingEntityRendererHitColorMixin",
+    "GameRendererCrosshairSmoothMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

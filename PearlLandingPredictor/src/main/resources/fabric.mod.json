@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "pearl_landing_predictor",
+  "version": "${version}",
+  "name": "LandingPredictor",
+  "description": "Visualizes Ender Pearl trajectory and predicted landing point in real time.",
+  "authors": ["Shampoon_"],
+  "contact": {},
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.pearllandingpredictor.PearlLandingPredictorClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "fabric-api": "*",
+    "minecraft": "1.21.8",
+    "java": ">=21"
+  }
+}
+

@@ -1,0 +1,11 @@
+{
+  "category.pvputils": "PVPUtils",
+  "key.pvputils.config": "Открыть настройки",
+  "key.pvputils.itempicker": "Переключить ItemPicker",
+  "key.pvputils.fastxp": "Переключить FastXP",
+  "key.pvputils.autosprint": "Переключить AutoSprint",
+  "key.pvputils.armorhud": "Переключить ArmorHUD",
+  "key.pvputils.effecttimer": "Переключить EffectTimer",
+  "key.pvputils.fullbright": "Переключить FullBright",
+  "key.pvputils.zoom.hold": "Зум (удерживать, колесо — сила)"
+}

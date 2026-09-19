@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.shampoon.speedysclient.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "ClientPlayerInteractionManagerMixin",
+    "ClientPlayNetworkHandlerMixin",
+    "ClientPlayerEntityDropMixin",
+    "EntityAntiInvisMixin",
+    "HeldItemRendererCustomHandMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

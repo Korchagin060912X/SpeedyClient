@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "ru.artem.durabilitytint.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "client.EquipmentRendererMixin",
+    "client.ItemStackMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

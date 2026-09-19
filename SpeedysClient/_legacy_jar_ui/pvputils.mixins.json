@@ -1,0 +1,23 @@
+{
+  "required": true,
+  "package": "com.shampoon.pvputils.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "ClientPlayerEntityMixin",
+    "EntityRenderDispatcherMixin",
+    "FluidFogModifiersMixin",
+    "GameRendererMixin",
+    "InGameHudMixin",
+    "InGameHudEffectMixin",
+    "InGameOverlayRendererMixin",
+    "MouseMixin",
+    "SimpleOptionGammaMixin",
+    "SoundManagerMixin",
+    "LightmapTextureManagerMixin",
+    "StatusEffectFogModifierMixin",
+    "WorldRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
